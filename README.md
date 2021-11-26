@@ -1,9 +1,10 @@
 # Recruitment System
 
 ## Functional Requirements
-Do you want to learn how to design a database system and map a business process to a data model? Then this post is for you.
 
-In this article, you’ll see how to design a simple database schema for a recruitment company. After reading this tutorial, you will be able to understand how database schemas are designed for real-world applications.
+In this article, you’ll see how to design a simple database schema for a recruitment company. 
+After reading the documentation, you will be able to understand how database schemas are designed for real-world 
+applications, as well as the layered architecture.
 
 ### The Recruitment System Business Process
 

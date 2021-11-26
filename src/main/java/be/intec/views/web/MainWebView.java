@@ -1,4 +1,4 @@
-package be.intec.views;
+package be.intec.views.web;
 
 
 import be.intec.services.flow.AnswersService;
@@ -10,11 +10,11 @@ import com.vaadin.flow.server.PWA;
 @Route("")
 @PWA(name = "Jobs Portal which does not hide salary information.", shortName = "jobs4me" )
 @CssImport("./styles/shared-styles.css")
-public class MainView extends VerticalLayout {
+public class MainWebView extends VerticalLayout {
 
     private final AnswersService service;
 
-    public MainView() {
+    public MainWebView() {
 
         this.service = new AnswersService();
 
