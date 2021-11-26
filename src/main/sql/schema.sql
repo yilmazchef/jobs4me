@@ -136,7 +136,7 @@ create table if not exists document
 (
     id           int unique    not null auto_increment,
     name         nvarchar(100) not null,
-    raw_data     longblob,
+    raw_data     binary null ,
     url          nvarchar(255),
     last_updated datetime,
 
@@ -245,8 +245,6 @@ create table if not exists interview_note
     constraint fk_recruiter_note foreign key (recruiter_id) references recruiter (id)
 
 ) charset = UTF8MB4;
-
-
 
 
 

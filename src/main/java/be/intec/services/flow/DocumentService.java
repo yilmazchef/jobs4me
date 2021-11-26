@@ -1,177 +1,168 @@
 package be.intec.services.flow;
 
-import be.intec.models.entities.*;
-import java.sql.*;
-import java.util.*;
-import be.intec.services.exceptions.*;
-import be.intec.repositories.*;
+
+import be.intec.models.entities.DocumentEntity;
+import be.intec.repositories.DocumentRepository;
+import be.intec.services.exceptions.DocumentException;
+
+import java.util.List;
 
 public class DocumentService {
 
-    private final DocumentRepository repository;
-    
-    public DocumentService() { 
-        this.repository = new DocumentRepository();
-    }
-    
-    public int clear() {
+	private final DocumentRepository repository;
 
-        final var rowsDeleted = repository.clear();
-    
-        return rowsDeleted;
-    }
-    
-    
-    public int resetSequence() {
-    
-        final var rowsEffected = repository.resetSequence();
 
-        return rowsEffected;
-    
-    }
-    
-    
-    public int save( DocumentEntity record ) throws DocumentException {
-    
-        int rowsEffected = repository.save( record ); 
+	public DocumentService() {
 
-        return rowsEffected;
-    }
+		this.repository = new DocumentRepository();
+	}
 
-    public DocumentEntity findById( Integer id ) throws DocumentException {
 
-        final var foundDocument = repository.findById( id );
+	public int clear() {
 
-        return foundDocument;
-    }
+		final var rowsDeleted = repository.clear();
 
-    public List<DocumentEntity> findAllByExample( DocumentEntity example ) throws DocumentException {
+		return rowsDeleted;
+	}
 
-        final List<DocumentEntity> itemList = repository.findAllByExample(example);
 
-        return itemList;
-    }
+	public int resetSequence() {
 
-    public List<DocumentEntity> findAll() throws DocumentException {
+		final var rowsEffected = repository.resetSequence();
 
-        final List<DocumentEntity> itemList = repository.findAll();
+		return rowsEffected;
 
-        return itemList;
-    }
+	}
 
-    public int updateById( Integer id, DocumentEntity record ) throws DocumentException {
 
-        int rowsEffected = repository.updateById(id, record);
+	public int save( DocumentEntity record ) throws DocumentException {
 
-        return rowsEffected;
-    }
+		int rowsEffected = repository.save( record );
 
-    public int deleteById( Integer id ) throws DocumentException {
+		return rowsEffected;
+	}
 
-        int rowsDeleted = repository.deleteById( id );
 
-        return rowsDeleted;
-    }
+	public DocumentEntity findById( Integer id ) throws DocumentException {
 
-    public int updateNameById( Integer id, String name ) throws DocumentException {
+		final var foundDocument = repository.findById( id );
 
-        int rowsEffected = repository.updateNameById( id, name );
+		return foundDocument;
+	}
 
-        return rowsEffected;
-    }
 
+	public List< DocumentEntity > findAllByExample( DocumentEntity example ) throws DocumentException {
 
-    public int updateRawDataById( Integer id, Long rawData ) throws DocumentException {
+		final List< DocumentEntity > itemList = repository.findAllByExample( example );
 
-        int rowsEffected = repository.updateRawDataById( id, rawData );
+		return itemList;
+	}
 
-        return rowsEffected;
-    }
 
+	public List< DocumentEntity > findAll() throws DocumentException {
 
-    public int updateUrlById( Integer id, String url ) throws DocumentException {
+		final List< DocumentEntity > itemList = repository.findAll();
 
-        int rowsEffected = repository.updateUrlById( id, url );
+		return itemList;
+	}
 
-        return rowsEffected;
-    }
 
+	public int updateById( Integer id, DocumentEntity record ) throws DocumentException {
 
-    public int updateLastUpdatedById( Integer id, java.sql.Timestamp lastUpdated ) throws DocumentException {
+		int rowsEffected = repository.updateById( id, record );
 
-        int rowsEffected = repository.updateLastUpdatedById( id, lastUpdated );
+		return rowsEffected;
+	}
 
-        return rowsEffected;
-    }
 
+	public int deleteById( Integer id ) throws DocumentException {
 
+		int rowsDeleted = repository.deleteById( id );
 
-    public boolean existsById( Integer id ) throws DocumentException {
+		return rowsDeleted;
+	}
 
-        boolean exists = repository.existsById( id );
 
-        return exists;
-    }
+	public int updateNameById( Integer id, String name ) throws DocumentException {
 
-    public List<DocumentEntity> searchByName( String name ) throws DocumentException {
+		int rowsEffected = repository.updateNameById( id, name );
 
-   final List<DocumentEntity> itemList =        repository.searchByName( name );
+		return rowsEffected;
+	}
 
-        return itemList;
-    }
 
+	public int updateUrlById( Integer id, String url ) throws DocumentException {
 
-    public boolean existsByName( String name ) throws DocumentException {
+		int rowsEffected = repository.updateUrlById( id, url );
 
-        boolean exists = repository.existsByName( name );
+		return rowsEffected;
+	}
 
-        return exists;
-    }
 
-    public List<DocumentEntity> searchByRawData( Long rawData ) throws DocumentException {
+	public int updateLastUpdatedById( Integer id, java.sql.Timestamp lastUpdated ) throws DocumentException {
 
-   final List<DocumentEntity> itemList =        repository.searchByRawData( rawData );
+		int rowsEffected = repository.updateLastUpdatedById( id, lastUpdated );
 
-        return itemList;
-    }
+		return rowsEffected;
+	}
 
 
-    public boolean existsByRawData( Long rawData ) throws DocumentException {
+	public boolean existsById( Integer id ) throws DocumentException {
 
-        boolean exists = repository.existsByRawData( rawData );
+		boolean exists = repository.existsById( id );
 
-        return exists;
-    }
+		return exists;
+	}
 
-    public List<DocumentEntity> searchByUrl( String url ) throws DocumentException {
 
-   final List<DocumentEntity> itemList =        repository.searchByUrl( url );
+	public List< DocumentEntity > searchByName( String name ) throws DocumentException {
 
-        return itemList;
-    }
+		final List< DocumentEntity > itemList = repository.searchByName( name );
 
+		return itemList;
+	}
 
-    public boolean existsByUrl( String url ) throws DocumentException {
 
-        boolean exists = repository.existsByUrl( url );
+	public boolean existsByName( String name ) throws DocumentException {
 
-        return exists;
-    }
+		boolean exists = repository.existsByName( name );
 
-    public List<DocumentEntity> searchByLastUpdated( java.sql.Timestamp lastUpdated ) throws DocumentException {
+		return exists;
+	}
 
-   final List<DocumentEntity> itemList =        repository.searchByLastUpdated( lastUpdated );
 
-        return itemList;
-    }
 
 
-    public boolean existsByLastUpdated( java.sql.Timestamp lastUpdated ) throws DocumentException {
+	public List< DocumentEntity > searchByUrl( String url ) throws DocumentException {
 
-        boolean exists = repository.existsByLastUpdated( lastUpdated );
+		final List< DocumentEntity > itemList = repository.searchByUrl( url );
 
-        return exists;
-    }
+		return itemList;
+	}
+
+
+	public boolean existsByUrl( String url ) throws DocumentException {
+
+		boolean exists = repository.existsByUrl( url );
+
+		return exists;
+	}
+
+
+	public List< DocumentEntity > searchByLastUpdated( java.sql.Timestamp lastUpdated ) throws DocumentException {
+
+		final List< DocumentEntity > itemList = repository.searchByLastUpdated( lastUpdated );
+
+		return itemList;
+	}
+
+
+	public boolean existsByLastUpdated( java.sql.Timestamp lastUpdated ) throws DocumentException {
+
+		boolean exists = repository.existsByLastUpdated( lastUpdated );
+
+		return exists;
+	}
 
 
 }
